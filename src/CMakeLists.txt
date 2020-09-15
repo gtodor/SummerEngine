@@ -1,4 +1,4 @@
-﻿# CMakeList.txt : CMake project for SummerEngine, include source and define
+﻿# CMakeList.txt : CMake project for opengl_renderer, include source and define
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.8)
@@ -23,15 +23,15 @@ find_package(GLM REQUIRED)
 include_directories(${GLM_INCLUDE_DIRS})
 
 # Add source to this project's executable.
-add_executable (SummerEngine "SummerEngine.cpp" "SummerEngine.h" "stb_image.cpp" "stb_image.h" "ShaderUtils.cpp" "ShaderUtils.h")
-target_link_libraries(SummerEngine ${SDL2_LIBS} ${GLEW_LIBRARY} ${OPENGL_LIBRARY})
+add_executable (opengl_renderer "main.cpp" "stb_image.cpp" "stb_image.h" "ShaderUtils.cpp" "ShaderUtils.h")
+target_link_libraries(opengl_renderer ${SDL2_LIBS} ${GLEW_LIBRARY} ${OPENGL_LIBRARY})
 
 add_definitions( -DROOT_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}\" )
 
 # Copy SDL2 DLLs to output folder on Windows
 if(WIN32)
     foreach(DLL ${SDL2_DLLS} ${GLEW_DLL})
-        add_custom_command(TARGET SummerEngine POST_BUILD COMMAND
-            ${CMAKE_COMMAND} -E copy_if_different ${DLL} $<TARGET_FILE_DIR:SummerEngine>)
+        add_custom_command(TARGET opengl_renderer POST_BUILD COMMAND
+            ${CMAKE_COMMAND} -E copy_if_different ${DLL} $<TARGET_FILE_DIR:opengl_renderer>)
     endforeach()
 endif()

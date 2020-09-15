@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("SummerEngine")
+project ("opengl_renderer")
 
 # Include sub-projects.
-add_subdirectory ("SummerEngine")
+add_subdirectory ("src")
