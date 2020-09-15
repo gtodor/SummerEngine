@@ -1,3 +1,3 @@
-# SummerEngine
+# opengl_renderer
 
-Opengl game engine
+Opengl rendering engine
